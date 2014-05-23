@@ -21,7 +21,7 @@ angular.module('starter.services', [])
       return friends[friendId];
     }
   }
-});
+})
 
 .factory('Dispositivos', function() {
     bluetoothSerial.list(function(devices) {
