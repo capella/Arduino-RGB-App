@@ -29,9 +29,18 @@ angular.module('starter.services', [])
             var de;
             bluetoothSerial.list(function(devices) {
               de = devices;
-              console.log(de);
             }, function(){});
             return de;
+        },
+        isConnected: function(){
+            var  status;
+            bluetoothSerial.isConnected(function(){ status = true }, function(){ status = false });
+            return status;
+        },
+        Connect: function(macAddress){
+            var  status;
+            bluetoothSerial.connect(macAddress, function(){ status = true }, function(){ status = false });
+            return status;
         }
       }
 });

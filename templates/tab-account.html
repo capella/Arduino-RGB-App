@@ -1,7 +1,7 @@
 <ion-view title="Dispositivos">
   <ion-content class="has-header">
     <ion-list>
-      <ion-item ng-repeat="device in devices" type="item-text-wrap" href="">
+      <ion-item ng-repeat="device in devices" type="item-text-wrap" href="" ng-click="click(device)">
         {{device.name}}
       </ion-item>
     </ion-list>
