@@ -24,11 +24,11 @@ angular.module('starter.services', [])
 })
 
 .factory('Dispositivos', function() {
-    bluetoothSerial.list(function(devices) {
-          return {
-            all: function() {
+    return {
+        all: function() {
+            bluetoothSerial.list(function(devices) {
               return devices;
-            }
-          }
-    }, function(){});
+            }, function(){});
+        }
+      }
 });

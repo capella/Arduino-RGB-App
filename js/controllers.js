@@ -1,10 +1,11 @@
 var APP2 = angular.module('starter.controllers', []);
 
-APP2.controller('DashCtrl', function($scope, Comandos) {
+APP2.controller('DashCtrl', function($scope, Comandos, Dispositivos) {
     $scope.comandos = Comandos.all();
     $scope.change = function(comam) { 
       if(comam.value == false){
-       console.log(comam.comando+'0');   
+       console.log(comam.comando+'0');
+       console.log(Dispositivos.all());
       } else {
        console.log(comam.comando+'1');   
       }
