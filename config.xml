@@ -11,7 +11,6 @@
         <preference name="phonegap-version" value="3.4.0" />
         <preference name="orientation" value="portrait" />
         <preference name="fullscreen" value="false" />
-        <preference name="permissions" value="none"/>
         <name>Arduino</name>
 
         <description>
@@ -23,7 +22,8 @@
         </author>
         
         <gap:platform name="android" />
-        <gap:plugin name="com.megster.cordova.bluetoothserial" version="0.2.0" />
+        <gap:plugin name="com.megster.cordova.bluetoothserial" />
+        <preference name="permissions" value="none"/>
         
         <access origin="*" />
             
