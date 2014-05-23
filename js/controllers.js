@@ -19,8 +19,6 @@ APP2.controller('FriendDetailCtrl', function($scope, $stateParams, Friends) {
   $scope.friend = Friends.get($stateParams.friendId);
 });
 
-APP2.controller('AccountCtrl', function($scope) {
-    bluetoothSerial.list(function(devices) {
-        $scope.devices  = devices;
-    }, failure);
+APP2.controller('AccountCtrl', function($scope, Dispositivos) {
+    $scope.devices  = Dispositivos.all();
 });
