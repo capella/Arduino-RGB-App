@@ -26,9 +26,12 @@ angular.module('starter.services', [])
 .factory('Dispositivos', function() {
     return {
         all: function() {
+            var de;
             bluetoothSerial.list(function(devices) {
-              return devices;
+              de = devices;
+              console.log(de);
             }, function(){});
+            return de;
         }
       }
 });
