@@ -1,5 +1,15 @@
 <ion-view title="Dashboard">
-  <ion-content class="has-header padding">
-    <h1>Dash</h1>
+  <ion-content class="has-header">
+    <ion-list>
+      <ion-item ng-repeat="comando in comandos" type="item-text-wrap" class="item item-toggle">
+             {{comando.name}}
+             <label class="toggle toggle-calm">
+               <input type="checkbox" ng-model="comando.value" ng-change="change(comando)">
+               <div class="track">
+                 <div class="handle"></div>
+               </div>
+             </label>
+      </ion-item>
+    </ion-list>
   </ion-content>
 </ion-view>

@@ -1,5 +1,9 @@
-<ion-view title="Account">
-  <ion-content class="has-header padding">
-    <h1>Account</h1>
+<ion-view title="Dispositivos">
+  <ion-content class="has-header">
+    <ion-list>
+      <ion-item ng-repeat="device in devices" type="item-text-wrap" href="">
+        {{device.name}}
+      </ion-item>
+    </ion-list>
   </ion-content>
 </ion-view>
