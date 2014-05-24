@@ -40,7 +40,13 @@ angular.module('starter.services', [])
         Connect: function(macAddress){
             var  status;
             console.log(macAddress);
-            bluetoothSerial.connect(macAddress, function(){ status = true }, function(){ status = false });
+            bluetoothSerial.connect(macAddress, function(){
+                status = true;
+                console.log("CONECTADO");
+            }, function(){ 
+                status = false;
+                console.log("ERRO"); 
+            });
             return status;
         }
       }
