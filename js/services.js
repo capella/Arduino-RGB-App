@@ -31,13 +31,6 @@ angular.module('starter.services', [])
               de = devices;
             }, function(){});
             return de;
-        },
-        isConnected: function(){
-            var  status;
-            bluetoothSerial.isConnected(function(){ status = true; }, function(){ status = false; });
-            console.log("conectividade");
-            console.log(status);
-            return status;
         }
       }
 });
