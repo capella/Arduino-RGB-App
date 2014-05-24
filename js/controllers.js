@@ -6,10 +6,10 @@ APP2.controller('DashCtrl', function($scope, $ionicModal, $location, $ionicLoadi
     $scope.change = function(comam) { 
       if(comam.value == false){
        console.log(comam.comando+'0');
-          enviar(comam.comando+'0');
+          if(!enviar(comam.comando+'0')){$location.path( '/tab/account' );}
       } else {
-       console.log(comam.comando+'1');  
-          enviar(comam.comando+'1'); 
+       console.log(comam.comando+'1'); 
+          if(!enviar(comam.comando+'1')){$location.path( '/tab/account' );}
       }
     };
     bluetoothSerial.isConnected(function(){ console.log(23); }, function(){ $location.path( '/tab/account' ); });
@@ -38,12 +38,11 @@ APP2.controller('AccountCtrl', function($scope, $ionicLoading, $ionicPopup, $loc
             $location.path( '/tab/dash' );
         }, function(x){ 
             $ionicLoading.hide();
-            $scope.showAlert = function() {
+            console.log(x);
             $ionicPopup.alert({
                   title: 'Aviso!',
                   content: x
                 });
-              };
         });
     };
 });
