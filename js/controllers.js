@@ -1,4 +1,5 @@
 var APP2 = angular.module('starter.controllers', []);
+var code;
 
 APP2.controller('DashCtrl', function($scope, $ionicModal, $location, $ionicLoading, Comandos, Dispositivos) {
     $scope.comandos = Comandos.all();
@@ -32,6 +33,7 @@ APP2.controller('AccountCtrl', function($scope, $ionicLoading, $ionicPopup, $loc
         var status;
         bluetoothSerial.connect(dispo.address, function(c){
             $ionicLoading.hide();
+            code = dispo.address;
             console.log(c);
             $location.path( '/tab/dash' );
         }, function(x){ 
@@ -47,5 +49,15 @@ APP2.controller('AccountCtrl', function($scope, $ionicLoading, $ionicPopup, $loc
 });
 
 function enviar(str){
-    bluetoothSerial.write("$$"+str+"$$",function(c){ console.log(c); }, function(c){ console.log("ERRO: "+c);});
+    bluetoothSerial.isConnected(function(){
+        bluetoothSerial.write("$$"+str,function(c){ console.log(c); }, function(c){ console.log("ERRO: "+c);});
+        return true;
+    }, function(){
+        bluetoothSerial.connect(code, function(c){
+             bluetoothSerial.write("$$"+str,function(c){ console.log(c); }, function(c){ console.log("ERRO: "+c);});
+            return true;
+        }, function(x){ 
+            return false;
+        });
+    });
 }
