@@ -6,10 +6,10 @@ APP2.controller('DashCtrl', function($scope, $ionicModal, $location, $ionicLoadi
     $scope.change = function(comam) { 
       if(comam.value == false){
        console.log(comam.comando+'0');
-          if(!enviar(comam.comando+'0')){$location.path( '/tab/account' );}
+          if(enviar(comam.comando+'0')==false){$location.path( '/tab/account' );}
       } else {
        console.log(comam.comando+'1'); 
-          if(!enviar(comam.comando+'1')){$location.path( '/tab/account' );}
+          if(enviar(comam.comando+'1')==false){$location.path( '/tab/account' );}
       }
     };
     bluetoothSerial.isConnected(function(){ console.log(23); }, function(){ $location.path( '/tab/account' ); });
