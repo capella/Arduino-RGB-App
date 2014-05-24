@@ -49,12 +49,14 @@ APP2.controller('AccountCtrl', function($scope, $ionicLoading, $ionicPopup, $loc
 });
 
 function enviar(str){
+    var f = {d: str};
+    var s = JSON.stringify(f);
     bluetoothSerial.isConnected(function(){
-        bluetoothSerial.write("$$"+str+"@@",function(c){ console.log(c); }, function(c){ console.log("ERRO: "+c);});
+        bluetoothSerial.write(s,function(c){ console.log(c); }, function(c){ console.log("ERRO: "+c);});
         return true;
     }, function(){
         bluetoothSerial.connect(code, function(c){
-             bluetoothSerial.write("$$"+str+"@@",function(c){ console.log(c); }, function(c){ console.log("ERRO: "+c);});
+             bluetoothSerial.write(s,function(c){ console.log(c); }, function(c){ console.log("ERRO: "+c);});
             return true;
         }, function(x){ 
             return false;
