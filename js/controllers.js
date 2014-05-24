@@ -9,7 +9,7 @@ APP2.controller('DashCtrl', function($scope, $ionicModal, $location, $ionicLoadi
        console.log(comam.comando+'1');   
       }
     };
-    bluetoothSerial.isConnected(function(){}, function(){ $location.path( '/tab/account' ); });
+    bluetoothSerial.isConnected(function(){ console.log(23); }, function(){ $location.path( '/tab/account' ); });
 });
 
 APP2.controller('FriendsCtrl', function($scope, Friends) {
