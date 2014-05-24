@@ -36,18 +36,6 @@ angular.module('starter.services', [])
             var  status;
             bluetoothSerial.isConnected(function(){ status = true }, function(){ status = false });
             return status;
-        },
-        Connect: function(macAddress){
-            var  status;
-            console.log(macAddress);
-            bluetoothSerial.connect(macAddress, function(){
-                status = true;
-                console.log("CONECTADO");
-            }, function(){ 
-                status = false;
-                console.log("ERRO"); 
-            });
-            return status;
         }
       }
 });

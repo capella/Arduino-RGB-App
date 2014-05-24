@@ -28,12 +28,13 @@ APP2.controller('AccountCtrl', function($scope, $ionicLoading, Dispositivos) {
         $ionicLoading.show({
           template: 'Conectando...'
         });
-        var status = Dispositivos.Connect(dispo.address);
-        if(status){
+        console.log(dispo.address);
+        var status;
+        bluetoothSerial.connect(dispo.address, function(){
             $location.path( '/tab/dash' );
             $ionicLoading.hide();
-        } else {
+        }, function(){ 
             $ionicLoading.hide();
-        }
+        });
     };
 });
