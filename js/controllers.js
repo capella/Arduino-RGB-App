@@ -30,8 +30,9 @@ APP2.controller('AccountCtrl', function($scope, $ionicLoading, $ionicPopup, $loc
         });
         console.log(dispo.address);
         var status;
-        bluetoothSerial.connect(dispo.address, function(){
+        bluetoothSerial.connect(dispo.address, function(c){
             $ionicLoading.hide();
+            console.log(c);
         }, function(x){ 
             $ionicLoading.hide();
             $scope.showAlert = function() {
