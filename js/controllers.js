@@ -22,7 +22,7 @@ APP2.controller('FriendDetailCtrl', function($scope, $stateParams, Friends) {
   $scope.friend = Friends.get($stateParams.friendId);
 });
 
-APP2.controller('AccountCtrl', function($scope, $ionicLoading, Dispositivos) {
+APP2.controller('AccountCtrl', function($scope, $ionicLoading, $ionicPopup, Dispositivos) {
     $scope.devices  = Dispositivos.all();
     $scope.click = function(dispo) { 
         $ionicLoading.show({
@@ -33,8 +33,14 @@ APP2.controller('AccountCtrl', function($scope, $ionicLoading, Dispositivos) {
         bluetoothSerial.connect(dispo.address, function(){
             $location.path( '/tab/dash' );
             $ionicLoading.hide();
-        }, function(){ 
+        }, function(x){ 
             $ionicLoading.hide();
+            $scope.showAlert = function() {
+            $ionicPopup.alert({
+                  title: 'Aviso!',
+                  content: x
+                });
+              };
         });
     };
 });
