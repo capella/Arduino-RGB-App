@@ -5,8 +5,10 @@ APP2.controller('DashCtrl', function($scope, $ionicModal, $location, $ionicLoadi
     $scope.change = function(comam) { 
       if(comam.value == false){
        console.log(comam.comando+'0');
+          enviar(comam.comando+'0');
       } else {
-       console.log(comam.comando+'1');   
+       console.log(comam.comando+'1');  
+          enviar(comam.comando+'1'); 
       }
     };
     bluetoothSerial.isConnected(function(){ console.log(23); }, function(){ $location.path( '/tab/account' ); });
@@ -45,5 +47,5 @@ APP2.controller('AccountCtrl', function($scope, $ionicLoading, $ionicPopup, $loc
 });
 
 function enviar(str){
-    bluetoothSerial.write(str,function(c){ console.log(c); }, function(c){ console.log("ERRO: "+c);});
+    bluetoothSerial.write("$$"+str+"$$",function(c){ console.log(c); }, function(c){ console.log("ERRO: "+c);});
 }
