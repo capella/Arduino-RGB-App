@@ -33,6 +33,7 @@ APP2.controller('AccountCtrl', function($scope, $ionicLoading, $ionicPopup, $loc
         bluetoothSerial.connect(dispo.address, function(c){
             $ionicLoading.hide();
             console.log(c);
+            $location.path( '/tab/dash' );
         }, function(x){ 
             $ionicLoading.hide();
             $scope.showAlert = function() {

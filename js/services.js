@@ -34,7 +34,9 @@ angular.module('starter.services', [])
         },
         isConnected: function(){
             var  status;
-            bluetoothSerial.isConnected(function(){ status = true }, function(){ status = false });
+            bluetoothSerial.isConnected(function(){ status = true; }, function(){ status = false; });
+            console.log("conectividade");
+            console.log(status);
             return status;
         }
       }
