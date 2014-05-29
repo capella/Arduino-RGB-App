@@ -70,6 +70,8 @@ function enviar2(r,g,b){
     var vr = String.fromCharCode(r);
     var vg = String.fromCharCode(g);
     var vb =String.fromCharCode(b);
+    
+    console.log(r+g+b);
     var en = "CL"+vr+vg+vb;
     console.log(en);
     bluetoothSerial.isConnected(function(){
