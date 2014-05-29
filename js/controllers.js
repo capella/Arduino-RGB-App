@@ -13,7 +13,7 @@ APP2.controller('DashCtrl', function($scope, $ionicModal, $location, $ionicLoadi
       }
     };
     $scope.muda = function() { 
-      enviar2($scope.corr,$scope.corg,$scope.corb);
+      enviar2(document.getElementById("corr").value,document.getElementById("corg").value,document.getElementById("corb").value);
     };
     bluetoothSerial.isConnected(function(){ console.log(23); }, function(){ $location.path( '/tab/account' ); });
 });
