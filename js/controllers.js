@@ -67,12 +67,7 @@ function enviar(str){
 }
 
 function enviar2(r,g,b){
-    var vr = String.fromCharCode(r);
-    var vg = String.fromCharCode(g);
-    var vb =String.fromCharCode(b);
-    
-    console.log(r+g+b);
-    var en = "CL"+vr+vg+vb;
+    var en = r+","+g+","+b+",";
     console.log(en);
     bluetoothSerial.isConnected(function(){
         bluetoothSerial.write(en,function(c){ console.log(c); }, function(c){ console.log("ERRO: "+c);});
