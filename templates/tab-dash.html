@@ -10,6 +10,23 @@
                </div>
              </label>
       </ion-item>
+        <ion-item>
+          <div class="item range range-assertive" cor="r">
+            <i class="icon ion-ios7-sunny-outline"></i>
+            <input type="range" name="volumer" min="0" max="255" value="10" ng-model="corr" ng-change="muda()">
+            <i class="icon ion-ios7-sunny"></i>
+          </div>
+          <div class="item range range-balanced" cor="g">
+            <i class="icon ion-ios7-sunny-outline"></i>
+            <input type="range" name="volumeg" min="0" max="255" value="10" ng-model="corg" ng-change="muda()">
+            <i class="icon ion-ios7-sunny"></i>
+          </div>
+          <div class="item range range-positive" cor="b">
+            <i class="icon ion-ios7-sunny-outline"></i>
+            <input type="range" name="volumeb" min="0" max="255" value="10" ng-model="corb" ng-change="muda()">
+            <i class="icon ion-ios7-sunny"></i>
+          </div>
+        </ion-item>
     </ion-list>
   </ion-content>
 </ion-view>

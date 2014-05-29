@@ -12,6 +12,9 @@ APP2.controller('DashCtrl', function($scope, $ionicModal, $location, $ionicLoadi
           if(enviar(comam.comando+'1')==false){$location.path( '/tab/account' );}
       }
     };
+    $scope.muda = function() { 
+      enviar2($scope.corr,$scope.corg,$scope.corb);
+    };
     bluetoothSerial.isConnected(function(){ console.log(23); }, function(){ $location.path( '/tab/account' ); });
 });
 
@@ -56,6 +59,25 @@ function enviar(str){
     }, function(){
         bluetoothSerial.connect(code, function(c){
              bluetoothSerial.write(s,function(c){ console.log(c); }, function(c){ console.log("ERRO: "+c);});
+            return true;
+        }, function(x){ 
+            return false;
+        });
+    });
+}
+
+function enviar2(r,g,b){
+    var vr = String.fromCharCode(r);
+    var vg = String.fromCharCode(g);
+    var vb =String.fromCharCode(b);
+    var en = "CL"+vr+vg+vb;
+    console.log(en);
+    bluetoothSerial.isConnected(function(){
+        bluetoothSerial.write(en,function(c){ console.log(c); }, function(c){ console.log("ERRO: "+c);});
+        return true;
+    }, function(){
+        bluetoothSerial.connect(code, function(c){
+             bluetoothSerial.write(en,function(c){ console.log(c); }, function(c){ console.log("ERRO: "+c);});
             return true;
         }, function(x){ 
             return false;
