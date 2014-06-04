@@ -1,7 +1,7 @@
 <ion-view title="Dashboard">
   <ion-content class="has-header">
     <ion-list>
-      <ion-item ng-repeat="comando in comandos" type="item-text-wrap" class="item item-toggle">
+      <ion-item ng-repeat="comando in comandos" type="item-text-wrap" class="item item-toggle" style="display: none;">
              {{comando.name}}
              <label class="toggle toggle-calm">
                <input type="checkbox" ng-model="comando.value" ng-change="change(comando)">
