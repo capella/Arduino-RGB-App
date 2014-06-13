@@ -26,5 +26,6 @@
         <preference name="permissions" value="none"/>
         
         <access origin="*" />
+        <icon src="icon.png" />
             
     </widget>
