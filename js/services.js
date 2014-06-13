@@ -36,14 +36,8 @@ app
             bluetoothSerial.isConnected(function(){
                 bluetoothSerial.write(data,function(c){ 
                     console.log(c); 
-                }, function(c){ 
-                    $ionicPopup.alert({
-                      title: 'Aviso!',
-                      content: c
-                    });
-                });
-                return true;
-            },  factory.connect(device));
+                }, factory.connect(device) });
+            });
         else {
             $location.path( '/dispositivos' );
         }
