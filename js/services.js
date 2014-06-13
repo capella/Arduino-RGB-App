@@ -1,23 +1,26 @@
 app
-.factory('Bluetooths', function($ionicLoading,$ionicPopup) {
-  return {
-    all: function() {
+.factory('Bluetooths', function($ionicLoading,$ionicPopup,$location) {
+  var device;
+  var factory = {}; 
+    
+  factory.all = function() {
         var de;
         bluetoothSerial.list(function(devices) {
           de = devices;
         }, function(){});
         return de;
-    },
-    connect: function(dispo) {
+    }
+    
+    factory.connect = function(dispo) {
         $ionicLoading.show({
           template: 'Conectando...'
         });
         console.log(dispo.address);
         bluetoothSerial.connect(dispo.address, function(c){
             $ionicLoading.hide();
-            code = dispo.address;
+            device = dispo;
             console.log(c);
-            $location.path( '/tab/dash' );
+            $location.path( '/controles' );
         }, function(x){ 
             $ionicLoading.hide();
             console.log(x);
@@ -27,6 +30,31 @@ app
                 });
         });
     }
+    
+    factory.send = function(data){
+        if(device != undefined)
+            bluetoothSerial.isConnected(function(){
+                bluetoothSerial.write(data,function(c){ 
+                    console.log(c); 
+                }, function(c){ 
+                    $ionicPopup.alert({
+                      title: 'Aviso!',
+                      content: c
+                    });
+                });
+                return true;
+            },  factory.connect(device));
+        else {
+            $location.path( '/dispositivos' );
+        }
+    }
+    
+    factory.sendRGB = function(r,g,b){
+        var en = r+","+g+","+b+",";
+        factory.send(en);
+    }
+    
+    return  factory;
   }
 })
 
