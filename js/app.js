@@ -1,19 +1,4 @@
-
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
-
-.run(function($ionicPlatform) {
-  $ionicPlatform.ready(function() {
-    // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-    // for form inputs)
-    if(window.cordova && window.cordova.plugins.Keyboard) {
-      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-    }
-    if(window.StatusBar) {
-      // org.apache.cordova.statusbar required
-      StatusBar.styleDefault();
-    }
-  });
-})
+var app = angular.module('ArduinoLuzes', ['ionic'])
 
 .config(function($stateProvider, $urlRouterProvider) {
 
@@ -22,37 +7,28 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   // Set up the various states which the app can be in.
   // Each state's controller can be found in controllers.js
   $stateProvider
-
-    // setup an abstract state for the tabs directive
-    .state('tab', {
-      url: "/tab",
-      abstract: true,
-      templateUrl: "templates/tabs.html"
-    })
-
-    // Each tab has its own nav history stack:
-
-    .state('tab.dash', {
-      url: '/dash',
+  
+    .state('controles', {
+      url: '/controles',
       views: {
-        'tab-dash': {
-          templateUrl: 'templates/tab-dash.html',
-          controller: 'DashCtrl'
+        'tab-controles': {
+          templateUrl: 'templates/controles.html',
+          controller: 'ControlesCtrl'
         }
       }
     })
-    .state('tab.account', {
-      url: '/account',
+  
+  .state('dispositivos', {
+      url: '/dispositivos',
       views: {
-        'tab-account': {
-          templateUrl: 'templates/tab-account.html',
-          controller: 'AccountCtrl'
+        'tab-dispositivos': {
+          templateUrl: 'templates/dispositivos.html',
+          controller: 'DispositivosCtrl'
         }
       }
     })
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/dash');
+  $urlRouterProvider.otherwise('/controles');
 
 });
-
