@@ -55,7 +55,6 @@ app
     }
     
     return  factory;
-  }
 })
 
 
