@@ -1,8 +1,7 @@
 var APP2 = angular.module('starter.controllers', []);
 var code;
 
-APP2.controller('DashCtrl', function($scope, $ionicModal, $location, $ionicLoading, Comandos, Dispositivos) {
-    $scope.comandos = Comandos.all();
+APP2.controller('DashCtrl', function($scope, $ionicModal, $location, $ionicLoading, Dispositivos) {
     $scope.change = function(comam) { 
       if(comam.value == false){
        console.log(comam.comando+'0');

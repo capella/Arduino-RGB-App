@@ -1,15 +1,6 @@
 <ion-view title="Dashboard">
   <ion-content class="has-header">
     <ion-list>
-      <ion-item ng-repeat="comando in comandos" type="item-text-wrap" class="item item-toggle" style="display: none;">
-             {{comando.name}}
-             <label class="toggle toggle-calm">
-               <input type="checkbox" ng-model="comando.value" ng-change="change(comando)">
-               <div class="track">
-                 <div class="handle"></div>
-               </div>
-             </label>
-      </ion-item>
           <div class="item range range-assertive" cor="r">
             <i class="icon ion-ios7-sunny-outline"></i>
             <input type="range" name="volumerr" min="0" max="255" value="10" ng-model="corr" ng-change="muda()" id="corr">
