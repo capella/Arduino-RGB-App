@@ -4,6 +4,7 @@ app
     $scope.muda = function() { 
       Bluetooths.sendRGB(document.getElementById("corr").value,document.getElementById("corg").value,document.getElementById("corb").value);
     };
+    Bluetooths.connectsave();
 })
 
 .controller('DispositivosCtrl', function($scope, Bluetooths) {

@@ -1,6 +1,5 @@
 app
 .factory('Bluetooths', function($ionicLoading,$ionicPopup,$location) {
-  var device;
   var factory = {}; 
     
   factory.all = function() {
@@ -18,7 +17,7 @@ app
         console.log(dispo.address);
         bluetoothSerial.connect(dispo.address, function(c){
             $ionicLoading.hide();
-            device = dispo;
+            localStorage.device = dispo;
             console.log(c);
             $location.path( '/controles' );
         }, function(x){ 
@@ -31,13 +30,41 @@ app
         });
     }
     
+    factory.connectsave = function() {
+         if(localStorage.device != undefined){
+            $ionicLoading.show({
+              template: 'Conectando...'
+            });
+            bluetoothSerial.connect(localStorage.device.address, function(c){
+                $ionicLoading.hide();
+                $location.path( '/controles' );
+            }, function(x){ 
+                $ionicLoading.hide();
+                console.log(x);
+                $ionicPopup.alert({
+                      title: 'Aviso!',
+                      content: x
+                    });
+            });
+         } else {
+            $location.path( '/dispositivos' );
+        }
+    }
+    
+    factory.disconnect = function(){
+        bluetoothSerial.disconnect(function(){
+            localStorage.removeItem("device");
+            $location.path( '/dispositivos' );
+        });
+    }
+    
     factory.send = function(data){
-        if(device != undefined)
+        if(localStorage.device != undefined)
             bluetoothSerial.isConnected(function(connected){
                 if(connected){
                     bluetoothSerial.write(data);
                 } else {
-                    factory.connect(device);
+                    factory.connect(localStorage.device);
                 }
             });
         else {
