@@ -72,7 +72,7 @@ app
     return  factory;
 })
 
-.factory('Cores', function() {
+.factory('Cores_data', function() {
     var factory = {};
     factory.all = function() {
       var corString = window.localStorage['cores'];
