@@ -30,10 +30,9 @@ app
     }
     
     $scope.deletar = function(key){
-        if(Cores_data.remove(key)){
+        if(Cores_data.remove(key)==true){
             alert(1);
             $scope.cores.splice(index, 1);
-            //$scope.cores = Cores_data.all();
         }
     }
     
