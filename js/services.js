@@ -89,14 +89,12 @@ app
       localStorage.cores = angular.toJson(data);
     }
     
-    factory.remove = function(cor){
+    factory.remove = function(index){
         var data = factory.all();
-        alert(2);
-        var index = array.indexOf(cor);
         alert(index);
         var confirmPopup = $ionicPopup.confirm({
              title: 'Deletar?',
-             template: 'Deseja deletar a cor'+cor.R+","+cor.G+","+cor.B+' das favoritas?'
+             template: 'Deseja deletar a cor'+data[index].R+","+data[index].G+","+data[index].B+' das favoritas?'
         });
         confirmPopup.then(function(res) {
              if(res) {
