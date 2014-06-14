@@ -24,11 +24,16 @@ app
 
 .controller('CoresCtrl', function($scope, Bluetooths, Cores_data) {
     $scope.cores = Cores_data.all();
+    
     $scope.slideChanged = function(index){
         Bluetooths.sendRGB($scope.cores[index].R,$scope.cores[index].G,$scope.cores[index].B);
-    }
-    $scope.deletar = function(index){
         Cores_data.remove(index);
     }
+    
+    $scope.deletar = function(index){
+        console.log(index);
+        Cores_data.remove(index);
+    }
+    
     Bluetooths.connectsave();
 });
