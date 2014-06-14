@@ -75,16 +75,19 @@ app
 .factory('Cores_data', function() {
     var factory = {};
     factory.all = function() {
-      var corString = window.localStorage['cores'];
+      var corString = localStorage.cores;
       if(corString) {
         return angular.fromJson(corString);
+      } else {
+        return [];
       }
-      return [];
     }
     factory.save = function(r,g,b) {
       var data = factory.all();
       data.push({R: r, G: g, B: b});
-      window.localStorage['cores'] = angular.toJson(data);
+        console.log(data);
+      localStorage.cores = angular.toJson(data);
+        console.log(window.localStorage['cores']);
     }
     return  factory;
 })
