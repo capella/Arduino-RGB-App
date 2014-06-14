@@ -99,9 +99,9 @@ app
              if(res) {
                 data.splice(index, 1);
                 localStorage.cores = angular.toJson(data);
-                 return "2";
+                 return true;
              } else {
-                 return "1";
+                 return false;
              }
         });
     }
