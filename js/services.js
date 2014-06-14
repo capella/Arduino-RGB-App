@@ -32,20 +32,7 @@ app
     
     factory.connectsave = function() {
          if(localStorage.device != undefined){
-            $ionicLoading.show({
-              template: 'Conectando...'
-            });
-            bluetoothSerial.connect(localStorage.device.address, function(c){
-                $ionicLoading.hide();
-                $location.path( '/controles' );
-            }, function(x){ 
-                $ionicLoading.hide();
-                console.log(x);
-                $ionicPopup.alert({
-                      title: 'Aviso!',
-                      content: x
-                    });
-            });
+            factory.connect(localStorage.device);
          } else {
             $location.path( '/dispositivos' );
         }

@@ -4,14 +4,17 @@ app
     $scope.muda = function() { 
       Bluetooths.sendRGB(document.getElementById("corr").value,document.getElementById("corg").value,document.getElementById("corb").value);
     };
+    
     Bluetooths.connectsave();
 })
 
 .controller('DispositivosCtrl', function($scope, Bluetooths) {
     $scope.devices  = Bluetooths.all();
+    
     $scope.click = function(dispo) { 
         Bluetooths.connect(dispo);
     };
+    
     $scope.desconectar = function(){
         Bluetooths.disconnect();
     }
