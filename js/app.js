@@ -28,6 +28,15 @@ var app = angular.module('ArduinoLuzes', ['ionic'])
       }
     })
 
+    .state('cores', {
+      url: '/cores',
+      views: {
+        'tab-cores': {
+          templateUrl: 'templates/cores.html',
+          controller: 'CoresCtrl'
+        }
+      }
+    })
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/controles');
 

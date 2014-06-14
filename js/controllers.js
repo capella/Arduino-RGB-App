@@ -4,7 +4,6 @@ app
     $scope.muda = function() { 
       Bluetooths.sendRGB(document.getElementById("corr").value,document.getElementById("corg").value,document.getElementById("corb").value);
     };
-    
     Bluetooths.connectsave();
 })
 
@@ -20,3 +19,6 @@ app
     }
 });
 
+.controller('CoresCtrl', function($scope, Bluetooths) {
+
+});
