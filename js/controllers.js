@@ -27,5 +27,8 @@ app
     $scope.slideChanged = function(index){
         Bluetooths.sendRGB($scope.cores[index].R,$scope.cores[index].G,$scope.cores[index].B);
     }
+    $scope.deletar = function(index){
+        Cores_data.remove(index);
+    }
     Bluetooths.connectsave();
 });

@@ -72,7 +72,7 @@ app
     return  factory;
 })
 
-.factory('Cores_data', function() {
+.factory('Cores_data', function($ionicLoading,$ionicPopup,$location) {
     var factory = {};
     factory.all = function() {
       var corString = localStorage.cores;
@@ -82,12 +82,26 @@ app
         return [];
       }
     }
+    
     factory.save = function(r,g,b) {
       var data = factory.all();
       data.push({R: r, G: g, B: b});
-        console.log(data);
       localStorage.cores = angular.toJson(data);
-        console.log(window.localStorage['cores']);
+    }
+    
+    factory.remove = function(index){
+        var data = factory.all();
+        var confirmPopup = $ionicPopup.confirm({
+             title: 'Deletar?',
+             template: 'Deseja deletar a cor'+data[index].R+","+data[index].G+","+data[index].B+' das favoritas?'
+        });
+        confirmPopup.then(function(res) {
+             if(res) {
+                data.splice(index, 1);
+                localStorage.cores = angular.toJson(data);
+                $location.path( '/cores' );
+             }
+        });
     }
     return  factory;
 })
