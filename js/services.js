@@ -33,10 +33,12 @@ app
     
     factory.send = function(data){
         if(device != undefined)
-            bluetoothSerial.isConnected(function(){
-                bluetoothSerial.write(data,function(c){ 
-                    console.log(c); 
-                }, factory.connect(device));
+            bluetoothSerial.isConnected(function(connected){
+                if(connected){
+                    bluetoothSerial.write(data);
+                } else {
+                    factory.connect(device);
+                }
             });
         else {
             $location.path( '/dispositivos' );
