@@ -27,6 +27,7 @@ app
                   title: 'Aviso!',
                   content: x
                 });
+            $location.path( '/dispositivos' );
         });
     }
     
