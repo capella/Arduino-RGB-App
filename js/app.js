@@ -45,4 +45,5 @@ var app = angular.module('ArduinoLuzes', ['ionic'])
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
     angular.bootstrap(document, ['ArduinoLuzes']);
+    navigator.splashscreen.hide();
 }
