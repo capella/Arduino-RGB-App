@@ -3,11 +3,15 @@ app
   var factory = {}; 
     
   factory.all = function() {
-        var de;
-        bluetoothSerial.list(function(devices) {
-          de = devices;
-        }, function(){});
-        return de;
+      if(Ready){
+            var de;
+            bluetoothSerial.list(function(devices) {
+              de = devices;
+            }, function(){});
+            return de;
+      } else {
+        return [];   
+      }
     }
     
     factory.connect = function(dispo) {
@@ -100,7 +104,7 @@ app
                 data.splice(index, 1);
                 localStorage.cores = angular.toJson(data);
                 $location.path( '/controles' );
-             }
+             } 
         });
     }
     return  factory;

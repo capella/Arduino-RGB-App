@@ -37,5 +37,5 @@ app
         Cores_data.remove(key);
     }
     
-    Bluetooths.connectsave();;
+    Bluetooths.connectsave();
 });

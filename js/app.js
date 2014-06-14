@@ -41,3 +41,9 @@ var app = angular.module('ArduinoLuzes', ['ionic'])
   $urlRouterProvider.otherwise('/controles');
 
 });
+
+var Ready = false;
+document.addEventListener("deviceready", onDeviceReady, false);
+function onDeviceReady() {
+    Ready = true;
+}
