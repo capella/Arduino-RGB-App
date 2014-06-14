@@ -20,6 +20,10 @@ app
     $scope.desconectar = function(){
         Bluetooths.disconnect();
     }
+    setTimeout(function() {
+        $scope.devices  = Bluetooths.all();
+        $scope.$apply();
+    }, 600);
 })
 
 .controller('CoresCtrl', function($scope, Bluetooths, Cores_data) {
@@ -30,13 +34,12 @@ app
     }
     
     $scope.deletar = function(key){
-        var funciona = Cores_data.remove(key);
-        funciona.$then(function(){ 
-            alert("2");
-            $scope.cores.splice(index, 1);
-            $scope.cores = Cores_data.all();
-        });   
+        Cores_data.remove(key);
     }
     
     Bluetooths.connectsave();
+    setTimeout(function() {
+        $scope.cores = Cores_data.all();
+        $scope.$apply();
+    }, 300);
 });
