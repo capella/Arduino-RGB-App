@@ -32,8 +32,8 @@ app
     $scope.deletar = function(key){
         var funciona = Cores_data.remove(key);
         funciona.$then(function(){ 
-            alert(funciona);
-            //$scope.cores.splice(index, 1);
+            alert("2");
+            $scope.cores.splice(index, 1);
             $scope.cores = Cores_data.all();
         });   
     }
