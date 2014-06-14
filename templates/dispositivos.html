@@ -5,6 +5,13 @@
         <ion-item ng-repeat="device in devices" type="item-text-wrap" href="" ng-click="click(device)">
             {{device.name}}
         </ion-item>
+        
+        <ion-item>
+            <button class="button button-block button-assertive" ng-click="desconectar()">
+              Desconectar
+            </button>
+        </ion-item>
+        
     </ion-list>
   </ion-content>
 </ion-view>

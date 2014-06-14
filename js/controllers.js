@@ -12,5 +12,8 @@ app
     $scope.click = function(dispo) { 
         Bluetooths.connect(dispo);
     };
+    $scope.desconectar = function(){
+        Bluetooths.disconnect();
+    }
 });
 
