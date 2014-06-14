@@ -11,23 +11,25 @@ app
     }
     
     factory.connect = function(dispo) {
-        $ionicLoading.show({
-          template: 'Conectando...'
-        });
-        console.log(dispo);
-        bluetoothSerial.connect(dispo, function(c){
-            $ionicLoading.hide();
-            localStorage.device = dispo;
-            console.log(c);
-            $location.path( '/controles' );
-        }, function(x){ 
-            $ionicLoading.hide();
-            console.log(x);
-            $ionicPopup.alert({
-                  title: 'Aviso!',
-                  content: x
-                });
-            $location.path( '/dispositivos' );
+        bluetoothSerial.disconnect(function(){
+            $ionicLoading.show({
+              template: 'Conectando...'
+            });
+            console.log(dispo);
+            bluetoothSerial.connect(dispo, function(c){
+                $ionicLoading.hide();
+                localStorage.device = dispo;
+                console.log(c);
+                $location.path( '/controles' );
+            }, function(x){ 
+                $ionicLoading.hide();
+                console.log(x);
+                $ionicPopup.alert({
+                      title: 'Aviso!',
+                      content: x
+                    });
+                $location.path( '/dispositivos' );
+            });
         });
     }
     
