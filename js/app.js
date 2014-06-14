@@ -42,9 +42,7 @@ var app = angular.module('ArduinoLuzes', ['ionic'])
 
 });
 
-var Ready = false;
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
-    Ready = true;
     angular.bootstrap(document, ['ArduinoLuzes']);
 }

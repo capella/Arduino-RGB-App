@@ -3,15 +3,11 @@ app
   var factory = {}; 
     
   factory.all = function() {
-      if(Ready){
-            var de;
-            bluetoothSerial.list(function(devices) {
-              de = devices;
-            }, function(){});
-            return de;
-      } else {
-        return [];   
-      }
+        var de;
+        bluetoothSerial.list(function(devices) {
+          de = devices;
+        }, function(){});
+        return de;
     }
     
     factory.connect = function(dispo) {
