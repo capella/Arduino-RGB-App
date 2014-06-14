@@ -1,5 +1,5 @@
 <ion-view title="Cores">
-        <ion-slide-box on-slide-changed="slideChanged(index)"  on-swipe-down="deletar(index)">
+        <ion-slide-box on-slide-changed="slideChanged(index)"  on-hold="deletar(index)">
           <ion-slide ng-repeat="cor in cores" style="background-color:rgba({{cor.R}},{{cor.G}},{{cor.B}},0.3);">
             <h1 style="margin-top: 30%;font-family: monospace;">{{cor.R}},{{cor.G}},{{cor.B}}</h1>
           </ion-slide>
