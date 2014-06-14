@@ -12,6 +12,7 @@
         <preference name="orientation" value="portrait" />
         <preference name="fullscreen" value="false" />
         <name>Arduino</name>
+        <gap:splash src="splash.png" />
 
         <description>
             
@@ -27,6 +28,6 @@
         
         <access origin="*" />
         <icon src="icon.png" />
-        <gap:splash src="splash.png" /> 
+        <gap:splash src="splash.png" />
             
     </widget>
