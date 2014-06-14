@@ -32,7 +32,12 @@ app
     
     factory.connectsave = function() {
          if(localStorage.device != undefined){
-            factory.connect(localStorage.device);
+            bluetoothSerial.isConnected(function(connected){
+                if(connected){
+                } else {
+                    factory.connect(localStorage.device);
+                }
+            });
          } else {
             $location.path( '/dispositivos' );
         }
