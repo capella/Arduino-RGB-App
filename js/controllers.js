@@ -17,7 +17,7 @@ app
     $scope.desconectar = function(){
         Bluetooths.disconnect();
     }
-});
+})
 
 .controller('CoresCtrl', function($scope, Bluetooths) {
 
