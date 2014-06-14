@@ -1,6 +1,7 @@
 <ion-view title="Cores">
-  <ion-content>
-    <!-- our list and list items -->
-
-  </ion-content>
+        <ion-slide-box on-slide-changed="slideChanged(index)">
+          <ion-slide ng-repeat="cor in cores" style="background-color:rgba({{cor.R}},{{cor.G}},{{cor.B}},0.3);">
+            <h1 style="margin-top: 30%;font-family: monospace;">{{cor.R}},{{cor.G}},{{cor.B}}</h1>
+          </ion-slide>
+        </ion-slide-box>
 </ion-view>

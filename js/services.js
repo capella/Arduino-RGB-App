@@ -68,6 +68,19 @@ app
     return  factory;
 })
 
+.factory('Cores_data', function() {
+    var factory = {};
+    factory.all = function() {
+        var de = [
+            {R: 255, B: 0, G: 0},
+            {R: 0, B: 255, G: 0},
+            {R: 0, B: 0, G: 255}
+        ];
+        return de;
+    }
+    return  factory;
+})
+
 
 
 .run(function($ionicPlatform) {
