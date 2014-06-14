@@ -72,15 +72,19 @@ app
     return  factory;
 })
 
-.factory('Cores_data', function() {
+.factory('Cores', function() {
     var factory = {};
     factory.all = function() {
-        var de = [
-            {R: 255, B: 0, G: 0},
-            {R: 0, B: 255, G: 0},
-            {R: 0, B: 0, G: 255}
-        ];
-        return de;
+      var corString = window.localStorage['cores'];
+      if(corString) {
+        return angular.fromJson(corString);
+      }
+      return [];
+    }
+    factory.save = function(r,g,b) {
+      var data = factory.all();
+      data.push({R: r, G: g, B: b});
+      window.localStorage['cores'] = angular.toJson(data);
     }
     return  factory;
 })
