@@ -27,7 +27,6 @@ app
     
     $scope.slideChanged = function(index){
         Bluetooths.sendRGB($scope.cores[index].R,$scope.cores[index].G,$scope.cores[index].B);
-        Cores_data.remove(index);
     }
     
     $scope.deletar = function(index){
