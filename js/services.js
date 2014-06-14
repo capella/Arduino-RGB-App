@@ -99,6 +99,8 @@ app
              if(res) {
                 data.splice(index, 1);
                 localStorage.cores = angular.toJson(data);
+                $location.path( '/controles' );
+                $location.path( '/cores' );
                  return true;
              } else {
                  return false;

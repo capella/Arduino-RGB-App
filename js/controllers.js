@@ -37,9 +37,5 @@ app
         Cores_data.remove(key);
     }
     
-    Bluetooths.connectsave();
-    setTimeout(function() {
-        $scope.cores = Cores_data.all();
-        $scope.$apply();
-    }, 300);
+    Bluetooths.connectsave();;
 });
