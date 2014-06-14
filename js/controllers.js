@@ -29,9 +29,9 @@ app
         Bluetooths.sendRGB($scope.cores[index].R,$scope.cores[index].G,$scope.cores[index].B);
     }
     
-    $scope.deletar = function(index){
-        console.log(index);
-        Cores_data.remove(index);
+    $scope.deletar = function(cor){
+        if(Cores_data.remove(cor))
+            $scope.cores = Cores_data.all();
     }
     
     Bluetooths.connectsave();
