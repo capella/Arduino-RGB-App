@@ -31,7 +31,9 @@ app
     
     $scope.deletar = function(key){
         if(Cores_data.remove(key)){
-            $scope.cores = Cores_data.all();
+            alert(1);
+            $scope.cores.splice(index, 1);
+            //$scope.cores = Cores_data.all();
         }
     }
     
