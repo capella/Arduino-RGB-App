@@ -54,7 +54,8 @@ app
     factory.send = function(data){
         if(localStorage.device != undefined){
             bluetoothSerial.isConnected(function(connected){
-                bluetoothSerial.write(data,function(){console.log(1);},function(){console.log(2);});
+                var eventTimeout = setTimeout(function(){ factory.connectsave(); }, 500);
+                bluetoothSerial.write(data,function(){ clearTimeout(eventTimeout); });
             }, function(){
                 factory.connect(localStorage.device);
             });
