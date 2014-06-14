@@ -93,6 +93,7 @@ app
         var data = factory.all();
         alert(2);
         var index = array.indexOf(cor);
+        alert(index);
         var confirmPopup = $ionicPopup.confirm({
              title: 'Deletar?',
              template: 'Deseja deletar a cor'+cor.R+","+cor.G+","+cor.B+' das favoritas?'
