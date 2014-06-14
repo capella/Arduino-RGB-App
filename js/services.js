@@ -91,7 +91,6 @@ app
     
     factory.remove = function(index){
         var data = factory.all();
-        alert(index);
         var confirmPopup = $ionicPopup.confirm({
              title: 'Deletar?',
              template: 'Deseja deletar a cor'+data[index].R+","+data[index].G+","+data[index].B+' das favoritas?'

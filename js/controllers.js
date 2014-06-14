@@ -30,7 +30,9 @@ app
     }
     
     $scope.deletar = function(key){
-        Cores_data.remove(key); 
+        if(Cores_data.remove(key)){
+            $scope.cores = Cores_data.all();
+        }
     }
     
     Bluetooths.connectsave();
