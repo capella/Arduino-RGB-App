@@ -12,7 +12,6 @@
         <preference name="orientation" value="portrait" />
         <preference name="fullscreen" value="false" />
         <name>Arduino</name>
-        <gap:splash src="splash.png" />
 
         <description>
             
