@@ -30,6 +30,7 @@ app
     }
     
     $scope.deletar = function(index){
+        alert(1);
         if(Cores_data.remove(index)){
             $scope.cores = Cores_data.all();
         }
