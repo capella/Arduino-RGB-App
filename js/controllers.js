@@ -30,6 +30,7 @@ app
     }
     
     $scope.deletar = function(cor){
+        alert(cor.R);
         Cores_data.remove(cor); 
     }
     
