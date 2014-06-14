@@ -14,8 +14,8 @@ app
         $ionicLoading.show({
           template: 'Conectando...'
         });
-        console.log(dispo.address);
-        bluetoothSerial.connect(dispo.address, function(c){
+        console.log(dispo);
+        bluetoothSerial.connect(dispo, function(c){
             $ionicLoading.hide();
             localStorage.device = dispo;
             console.log(c);

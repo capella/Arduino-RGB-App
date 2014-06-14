@@ -12,7 +12,7 @@ app
     $scope.devices  = Bluetooths.all();
     
     $scope.click = function(dispo) { 
-        Bluetooths.connect(dispo);
+        Bluetooths.connect(dispo.address);
     };
     
     $scope.desconectar = function(){
