@@ -33,10 +33,8 @@ app
     factory.connectsave = function() {
          if(localStorage.device != undefined){
             bluetoothSerial.isConnected(function(connected){
-                if(connected){
-                } else {
-                    factory.connect(localStorage.device);
-                }
+            }, function(){
+                factory.connect(localStorage.device);
             });
          } else {
             $location.path( '/dispositivos' );
@@ -51,15 +49,13 @@ app
     }
     
     factory.send = function(data){
-        if(localStorage.device != undefined)
+        if(localStorage.device != undefined){
             bluetoothSerial.isConnected(function(connected){
-                if(connected){
-                    bluetoothSerial.write(data);
-                } else {
-                    factory.connect(localStorage.device);
-                }
+                bluetoothSerial.write(data);
+            }, function(){
+                factory.connect(localStorage.device);
             });
-        else {
+        } else {
             $location.path( '/dispositivos' );
         }
     }
